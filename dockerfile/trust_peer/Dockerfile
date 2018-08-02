@@ -1,0 +1,20 @@
+FROM python:3.6.5-jessie
+
+RUN apt update 
+RUN apt install -y libgl1-mesa-dev
+
+RUN pip install flask & \
+	pip install PyQt5
+
+RUN git clone --branch 0.1 https://github.com/P-ful/logchain.git /logchain
+
+RUN mkdir /conf
+WORKDIR /logchain
+
+VOLUME ["/conf"]
+
+RUN pip install netifaces
+
+CMD ["python", "/logchain/launcher/logchain_launcher_for_trustpeer.py"]
+
+

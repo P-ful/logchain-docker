@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  generic_peer:
+    build: "./dockerfile/generic_peer"
+    x-platform: linux
+    environment:
+      - DOCKER_DEFAULT_PLATFORM=linux
+    volumes: 
+      - "/conf:/Users/daeyeonjoo/Downloads/logchain-s-master/generic_peer/conf"
+    ports:
+      - "5000:5000"
+    networks:
+      logchainnet:
+        ipv4_address: 172.18.0.32
+  trust_peer:
+    build: ./dockerfile/trust_peer  
+    environment:
+      - DOCKER_DEFAULT_PLATFORM=linux
+    command: "--platform linux"
+    volumes: 
+      - "/conf:/Users/daeyeonjoo/Downloads/logchain-s-master/generic_peer/conf"
+    ports:
+      - "5001:5001"
+    networks:
+      logchainnet:
+        ipv4_address: 172.18.0.33
+
+networks:
+  logchainnet: 
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16   
