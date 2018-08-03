@@ -1,0 +1,11 @@
+{
+    "PEER_MGR": {
+        "ID": "pc producer",
+        "IP": "172.18.0.22",
+        "PORT": 9999
+    },
+    "PEER_CONNECTOR_PORT": 8888,
+    "PEER_LIST": [
+        "gw1"
+    ]
+}
