@@ -14,6 +14,7 @@ WORKDIR /logchain
 VOLUME ["/conf"]
 
 RUN pip install netifaces
+ENV PYTHONPATH /logchain
 
 CMD ["python", "/logchain/launcher/logchain_launcher_for_genericpeer_restapi_node.py"]
 
