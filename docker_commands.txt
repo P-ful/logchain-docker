@@ -3,13 +3,14 @@ docker network create --subnet=172.18.0.0/16 logchainnet
 
 
 # for trust peer
-docker build --tag logchain_trustpeer:latest .
-docker run --rm -it -v /Users/daeyeonjoo/Downloads/logchain-s-master/trust_peer/conf:/conf --net logchainnet --ip 172.18.0.22 logchain_trustpeer:latest
+docker build -t pful/logchain_trust_node:0.1 .
+docker run --rm -it -v /home/ubuntu/logchain-s-docker/confs/conf_trust:/conf --net logchainnet --ip 172.18.0.22 pful/logchain_trust_node:0.1
 
-# for trust peer
-docker build --tag logchain_genericpeer:latest .
-docker run --rm -it -v /Users/daeyeonjoo/Downloads/logchain-s-master/generic_peer/conf:/conf --net logchainnet --ip 172.18.0.32 -p 5000:5000 logchain_genericpeer:latest
-docker run --rm -it -v /Users/daeyeonjoo/Downloads/logchain-s-master/generic_peer/conf:/conf --net logchainnet --ip 172.18.0.33 -p 5001:5000 logchain_genericpeer:latest
+# for generic peer
+docker build -t pful/logchain_generic_node:0.1 .
+docker run --rm -it -v /home/ubuntu/logchain-s-docker/confs/conf_generic1:/conf --net logchainnet --ip 172.18.0.32 -p 5000:5000 pful/logchain_generic_node:0.1
+docker run --rm -it -v /home/ubuntu/logchain-s-docker/confs/conf_generic2:/conf --net logchainnet --ip 172.18.0.33 -p 5001:5000 pful/logchain_generic_node:0.1
+
 
 
 docker run --rm -it --net logchainnet --ip 172.18.0.43 ubuntu:16.04

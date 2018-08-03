@@ -1,0 +1,13 @@
+{
+    "PEER_CONNECTOR": {
+        "ID": "gw1",
+        "PORT": 8888
+    },
+    "PEER_MGR_LIST": [
+        {
+            "ID": "pc producer",
+            "IP": "172.18.0.22",
+            "PORT": 9999
+        }
+    ]
+}
