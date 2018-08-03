@@ -1,6 +1,6 @@
 {
 	"storage_type": "local",
-	"root_path": "P:/logchain-s-master/src",
+	"root_path": "/logchain",
 	"ftp_address": "",
 	"ftp_port": 21,
 	"ftp_account": "",
